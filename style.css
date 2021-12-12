@@ -1,0 +1,246 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #fff;
+}
+
+.background {
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	right: 5%;
+	bottom: 5%;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, .1), -1px -1px 1px rgba(0, 0, 0, .1);
+	background-color: rgba(217, 217, 217, 1);
+	overflow: hidden;
+}
+
+.background::before {
+	content: '';
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	right: 0;
+	top: 0%;
+	bottom: 40%;
+	background-color: #f1f1f1;
+}
+
+.background::after {
+	content: '';
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	right: 0;
+	top: 60%;
+	bottom: 0%;
+	background-image: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+/* product */
+
+.product {
+	position: absolute;
+	top: 55%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 325px;
+	height: 300px;
+	z-index: 2; 
+	background-image: url(img/shoesDesktop.png);
+	background-size: cover;
+	background-position: center;
+	transition: 1s;
+}
+
+.product::after {
+	content: '';
+	position: absolute;
+	background-image: inherit;
+	width: inherit;
+	height: 70%;
+	bottom: -45%;
+	transform: scaleY(-1);
+	z-index: 2;
+	opacity: .5;
+}
+
+.product span {
+	position: absolute;
+	top: 54%;
+	right: -50%;
+	z-index: -1;
+	color: #555;
+	font-family: 'Open Sans', sans-serif;
+	opacity: .5;
+}
+
+/* description of product*/
+
+.description {
+	position: absolute;
+	top: 30%;
+	left: 25%;
+	transform: translate(-50%, -50%);;
+	z-index: 2; 
+	transition: 1s;
+	width: 30%;
+	padding: 5px 0;
+	overflow: hidden;
+	border-radius: 3px;
+}
+
+.description::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #333;
+	z-index: -1;
+	filter: blur(15px);
+	border-radius: 5px;
+}
+
+.description span {
+	display: block;
+	font-family: arial;
+	color: rgba(243, 221, 161, 1);
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.description span strong:nth-child(1) {
+	background-color: #000;
+}
+
+.description span strong:nth-child(2) {
+	background-color: #fff;
+}
+
+.description span:nth-child(1) {
+	font-weight: 500;
+	font-size: 1rem;
+}
+
+.description span:nth-child(2) {
+	font-size: 1rem;
+	margin-bottom: 15px;
+}
+
+.description span:nth-child(3) {
+	position: relative;
+	display: block;
+	font-weight: 500;
+	font-size: 2rem;
+	text-align: center;
+}
+
+.description span:nth-child(3)::before {
+	content: 'Rp. 1.000.000.000';
+	position: relative;
+	text-align: center;
+	display: block;
+	font-size: .9rem;
+	z-index: 3;
+	font-style: oblique;
+	text-decoration: line-through;
+}
+
+/* buy! */
+
+button {
+	position: absolute;
+	bottom: 20%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+	padding: 3px 25px;
+	transition: 1s;
+	background-color: rgba(255, 255, 255, 1);
+	border: 1.5px solid #000;
+	border-radius: 50px;
+	font-size: 1rem;
+}
+
+button:hover {
+	background-color: rgba(255, 255, 255, .5);
+	transition: .5s;
+}
+
+/* responsivity */
+
+@media screen and (max-width: 576px) {
+
+	/* product */
+
+	.product {
+		width: 200px;
+		height: 200px;
+		background-image: url(img/shoesMobile.png);
+		transition: 1s;
+	}
+
+	.product::after {
+		content: '';
+		position: absolute;
+		background-image: inherit;
+		width: inherit;
+		height: 65%;
+		bottom: -35%;
+		transform: scaleY(-1);
+		z-index: 2;
+		opacity: .5;
+	}
+
+	.product span {
+		position: absolute;
+		top: 60%;
+		right: -60%;
+		font-size: .7rem;
+		z-index: -1;
+		color: #555;
+		font-family: sans-serif;
+	}
+
+	/* description of product*/
+
+	.description {
+		width: 50%;
+	}
+
+	.description span:nth-child(1) {
+		font-size: .6rem;
+	}
+
+	.description span:nth-child(2) {
+		font-size: .6rem;
+	}
+
+	.description span:nth-child(3) {
+		font-size: 1.1rem;
+	}
+
+	.description span:nth-child(3)::before {
+		font-size: .7rem;
+	}
+
+	/* buy! */
+
+	button {
+		bottom: 30%;
+		transform: translate(-50%, -50%);
+		z-index: 2;
+		padding: 3px 25px;
+		transition: 1s;
+		background-color: rgba(255, 255, 255, 1);
+		border: 1.5px solid #000;
+		border-radius: 50px;
+		font-size: .7rem;
+	}
+}
